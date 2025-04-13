@@ -1,0 +1,16 @@
+import { Router } from "express";
+import userController from "../controller/userController.js";
+import auth from "./auth.js";
+const router = Router();
+router.route("/create-user").post(userController.createUser);
+router.route("/login-user").post(userController.loginUser);
+router.route("/get-user").get(auth,userController.userDetail);
+router.route("/update-password").put(auth,userController.updateUser);
+router.route("/update-basic").put(auth,userController.updateUserbasics);
+router.route("/update-education").put(auth,userController.updateUsereducation);
+router.route("/update-finance").put(auth,userController.updateUserfinance);
+router.route("/update-shopping").put(auth,userController.updateUserShopping);
+router.route("/update-lse").put(auth,userController.updateUserlse);
+router.route("/request-for-client").put(auth,userController.requestforClient);
+router.route("/request-for-referals").post(userController.requestforClientReferal);
+export default router;
